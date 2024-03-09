@@ -1,7 +1,5 @@
 package org.example;
 
-import org.example.structureEx.*;
-
 import java.io.IOException;
 
 public class Main {
@@ -30,8 +28,12 @@ public class Main {
 //        QueueEx queueEx = new QueueEx();
 //        queueEx.qEx();
 
-        ControllerEx controllerEx = new ControllerEx();
-        controllerEx.priceController();
+        ServiceEx.itemSave();
+        ViewEx.nameInfoView();
+        ViewEx.priceInfoView();
+        ViewEx.itemInfoView();
+        ViewEx.selectedPriceInfoView("아이폰14");
+        ViewEx.selectedPriceInfoView("맥북프로M3Pro");
 
 
     }
