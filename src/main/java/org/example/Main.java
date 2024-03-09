@@ -1,7 +1,6 @@
 package org.example;
 
-import org.example.input.ConsoleInputEx;
-import org.example.input.FileInputEx;
+import org.example.structureEx.*;
 
 import java.io.IOException;
 
@@ -12,7 +11,28 @@ public class Main {
 
 //        ConsoleInputEx inex = new ConsoleInputEx();
 //        inex.inputEx();
-        FileInputEx input = new FileInputEx();
-        input.outputEx();
+
+//        FileInputEx input = new FileInputEx();
+//        input.outputEx();
+
+//        HashMapEx hashMapEx = new HashMapEx();
+//        hashMapEx.printMap();
+
+//        LinkedListEx linkedListEx = new LinkedListEx();
+//        linkedListEx.linkedListEx();
+
+//        PriorityQueueEx pqEx = new PriorityQueueEx();
+//        pqEx.priorityEx();
+
+//        ListEx listEx = new ListEx();
+//        listEx.listEx();
+
+//        QueueEx queueEx = new QueueEx();
+//        queueEx.qEx();
+
+        ControllerEx controllerEx = new ControllerEx();
+        controllerEx.priceController();
+
+
     }
 }
