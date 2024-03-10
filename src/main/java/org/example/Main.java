@@ -28,13 +28,15 @@ public class Main {
 //        QueueEx queueEx = new QueueEx();
 //        queueEx.qEx();
 
-        ServiceEx.itemSave();
-        ViewEx.nameInfoView();
-        ViewEx.priceInfoView();
-        ViewEx.itemInfoView();
-        ViewEx.selectedPriceInfoView("아이폰14");
-        ViewEx.selectedPriceInfoView("맥북프로M3Pro");
+//        ServiceEx.itemSave();
+//        ViewEx.nameInfoView();
+//        ViewEx.priceInfoView();
+//        ViewEx.itemInfoView();
+//        ViewEx.selectedPriceInfoView("아이폰14");
+//        ViewEx.selectedPriceInfoView("맥북프로M3Pro");
 
+//        TargetNumber targetNumber = new TargetNumber();
+//        targetNumber.solution(new int[]{1,1,1}, 1);
 
     }
 }
