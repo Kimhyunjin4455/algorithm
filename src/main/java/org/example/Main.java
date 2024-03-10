@@ -3,6 +3,7 @@ package org.example;
 import java.io.IOException;
 
 public class Main {
+    /**main branch*/
     public static void main(String[] args) throws IOException {
 //        StringBufferEx sbe = new StringBufferEx();
 //        sbe.stringBufferEx();
