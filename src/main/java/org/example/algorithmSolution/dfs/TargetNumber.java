@@ -1,4 +1,4 @@
-package org.example.algorithmSolution;
+package org.example.algorithmSolution.dfs;
 
 public class TargetNumber {
     static int[] numbers;

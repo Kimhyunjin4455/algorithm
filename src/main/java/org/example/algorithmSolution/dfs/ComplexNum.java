@@ -1,4 +1,4 @@
-package org.example.algorithmSolution;
+package org.example.algorithmSolution.dfs;
 
 import java.io.*;
 import java.util.ArrayList;
