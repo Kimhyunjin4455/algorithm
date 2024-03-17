@@ -1,4 +1,4 @@
-package org.example.algorithmSolution;
+package org.example.input;
 
 import java.io.*;
 import java.util.HashMap;
