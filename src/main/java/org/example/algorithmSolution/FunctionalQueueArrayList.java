@@ -1,4 +1,4 @@
-package org.example.structureEx;
+package org.example.algorithmSolution;
 
 import java.util.ArrayList;
 import java.util.List;

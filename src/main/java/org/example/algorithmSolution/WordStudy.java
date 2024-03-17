@@ -1,4 +1,4 @@
-package org.example.input;
+package org.example.algorithmSolution;
 
 import java.io.*;
 
