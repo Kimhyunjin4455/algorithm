@@ -21,30 +21,38 @@ public class KeyPad {
 
 
     static class Solution {
-        Position nowLeft;
-        Position nowRight;
-        Position numPos;
+
+        Position left;
+        Position right;
+        Position keyNum;
         public String solution(int[] numbers, String hand) {
+
             // 키패드 생성
             String[][] keyPad = new String[][]{{"1","2","3"}, {"4","5","6"}, {"7","8","9"}, {"*","0","#"}};
-
-            // 손가락 위치 생성
-            nowLeft = new Position(3,0);
-            nowRight = new Position(3,2);
+            // 초기 손가락 위치
+            left = new Position(3,0);
+            right = new Position(3,2);
 
             String answer = "";
-            for (int num: numbers){   // 주어진 숫자에 대해
-                numPos = new Position((num-1)/3, (num-1)%3);   // 숫자의 위치 체크
-                if(num == 0){
-                    numPos = new Position(3,1); // 0은 순서와 다르기에 따로 처리
-                }
-                String finger = numPos.getFinger(hand);
-                if(finger=="R") nowRight = numPos;
-                if (finger=="L") nowLeft = numPos;
+
+            for(int num: numbers){
+                // 숫자에 대한 위치 구하기 + 거리 구하기 + 이동된 손가락 구하기
+                keyNum = new Position((num-1)/3, (num-1)%3);
+                if(num == 0) keyNum = new Position(3,1);
+
+                String finger = keyNum.getFinger(hand);
+
+                // answer에 손가락 추가
                 answer += finger;
 
+                // 손가락 위치 조정
+                if(finger == "R") right = keyNum;
+                else if(finger == "L") left = keyNum;
+
             }
+
             return answer;
+
         }
 
         class Position{
@@ -56,25 +64,32 @@ public class KeyPad {
                 this.col = col;
             }
 
-            public String getFinger(String hand){
-                String finger = hand.equals("right") ? "R" : "L";
-                if (this.col == 0) finger = "L";    // this는 numPos기준으로 실행
-                else if(this.col == 2) finger = "R";
-                else{
-                    int leftDistance = nowLeft.getDistance(this);
-                    int rightDistance = nowRight.getDistance(this);
+            String getFinger(String hand){
+                String finger = hand.equals("right")?"R":"L";       // main 클래스의 입력기준은 오른손잡이
+                if(this.col == 0) finger = "L";
+                else if (this.col == 2) finger = "R";
+                else {
+//                    int leftDistance = left.getDistance(this);  // left 기준으로 실행하기에 파라미터값 this로
+//                    int rightDistance = right.getDistance(this);
+                    int leftDistance = this.getDistance(left);
+                    int rightDistance = this.getDistance(right);
 
-                    if (leftDistance < rightDistance) finger = "L";
-                    else if (leftDistance > rightDistance) finger = "R";
-
+                    if(leftDistance < rightDistance) finger = "L";
+                    else if (rightDistance < leftDistance) finger = "R";
                 }
+
                 return finger;
             }
-            public int getDistance(Position p){
-                return (Math.abs(this.row - p.row) + Math.abs(this.col - p.col));
-            }
 
+            int getDistance(Position p){
+                int distance = (Math.abs(this.row - p.row) + Math.abs(this.col - p.col));
+                return distance;
+            }
         }
+
+
+
+
     }
 
 
