@@ -1,4 +1,4 @@
-package org.example.algorithmSolution;
+package org.example.algorithmSolution.problem;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

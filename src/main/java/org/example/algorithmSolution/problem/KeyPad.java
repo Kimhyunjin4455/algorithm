@@ -1,4 +1,4 @@
-package org.example.algorithmSolution;
+package org.example.algorithmSolution.problem;
 
 public class KeyPad {
     // 맨 처음 왼손 엄지손가락은 * 키패드에 오른손 엄지손가락은 # 키패드 위치에서 시작

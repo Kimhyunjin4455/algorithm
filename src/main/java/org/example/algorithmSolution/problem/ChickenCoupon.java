@@ -1,4 +1,4 @@
-package org.example.algorithmSolution;
+package org.example.algorithmSolution.problem;
 
 import java.io.IOException;
 import java.util.Scanner;
