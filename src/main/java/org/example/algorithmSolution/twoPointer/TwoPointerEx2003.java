@@ -1,4 +1,4 @@
-package org.example.algorithmSolution.problem;
+package org.example.algorithmSolution.twoPointer;
 
 import java.io.*;
 import java.util.StringTokenizer;
@@ -53,6 +53,9 @@ public class TwoPointerEx2003 {
 
 // #2
 //        while(true){
+            // 포인터가 배열의 끝(N)에 도착했을 때
+            // sum>= m이면 아직 탐색할 구간이 남았으므로 s의 값을 이동해주면서 구간 탐색 더함
+            // sum<m이면 더 이상 탐색해봤자 sum보다 큰 값은 안나오므로 반복문을 종료
 //            if(sum >= M){
 //                sum -= arr[start];
 //                start ++;
@@ -78,6 +81,7 @@ public class TwoPointerEx2003 {
 
             if(sum == M) cnt++;
         }
+
 
         bw.write(String.valueOf(cnt));
 
