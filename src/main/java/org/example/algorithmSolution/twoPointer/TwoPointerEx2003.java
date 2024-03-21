@@ -1,4 +1,4 @@
-package org.example.algorithmSolution.problem;
+package org.example.algorithmSolution.twoPointer;
 
 import java.io.*;
 import java.util.StringTokenizer;
