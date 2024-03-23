@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class KnapsackGold1 {
+    // test comment
     static ArrayList<Integer> left, right;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
