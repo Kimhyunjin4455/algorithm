@@ -48,14 +48,15 @@ public class TwoPointerEx1208 {
 
         // 하나는 앞에서, 하나는 뒤에서부터 시작해 각 값을 더해보고 S와 비교
         // S보다 합이 작다면 앞에서부터 시작한 리스트의 포인터를 1 증가, 만약 S보다 합이 크다면 뒤에서부터 시작한 리스트의 포인터를 1 감소
-        while(start < left.size() && end >=0){
+        while(start < left.size() && end >=0){ // 하나는 앞에서, 하나는 뒤에서부터 시작해 범위를 벗어나지 않도록
             int leftValue = left.get(start);
             int rightValue = right.get(end);
 
             // 만약 S와 합이 일치하다면 / 합을 이루는 값들이 각 리스트에 들어있는 개수를 세어 그 쌍을 이룰 수 있는 경우의 수를 구하고 + cnt
-            if(leftValue + rightValue == S){
+            /** 정렬이 되어있으므로 아래의 탐색 가능*/
+            if(leftValue + rightValue == S){ // leftValue 와 rightValue의 중복쌍을 세기 위함
                 long leftCnt = 0;
-                while(start < left.size() && left.get(start) == leftValue){
+                while(start < left.size() && left.get(start) == leftValue){ // 범위를 벗어나지 않고, 현재값이 비교할값과 같다면
                     leftCnt++;
                     start++;
                 }

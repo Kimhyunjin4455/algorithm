@@ -71,7 +71,7 @@ public class TwoPointerEx2003 {
 
 // #3
         while (start<N){
-            if(sum > M || end == N){
+            if(sum > M || end == N){ // 계산의 범위를 벗어나거나 배열의 범위를 벗어나거나
                 sum -= arr[start];
                 start++;
             }else {
