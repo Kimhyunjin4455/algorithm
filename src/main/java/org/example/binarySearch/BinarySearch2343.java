@@ -37,35 +37,40 @@ public class BinarySearch2343 {
 
         int start = longestLength;
         int end = sumLength;
-        int cnt = 0;
+
 
         while (start<=end){
             int mid = (start+end)/2;
-            int blueray = 0;
-            int resultLength = 0;
+            int sum = 0;
+            int cnt = 0;
 
             for(int i = 0; i<N; i++){
-
-
-                // blueray값이 21이 안되도록
-                if(blueray + videoLengths[i] < mid){
-                    blueray += videoLengths[i];
-                }else{
+                if(sum + videoLengths[i] > mid){
+                    sum = 0;
                     cnt++;
-                    resultLength = Math.max(resultLength, blueray);
-                    System.out.println("blueray = " + blueray);
-                    blueray = 0;
+                    // sum += videoLengths[i];
+
                 }
+                /** else 사용 시 틀림 -> else를 사용하면 'sum + videoLengths[i] > mid' 때 sum에 현재 인덱스값이 더해지지 않음 */
+                /** 위 if문의 주석 해제하고 아래의 else 적용은 가능 but 가독성 떨어지는 코드*/
+                sum += videoLengths[i];
+                //else{
+                //    sum += videoLengths[i];
+                //}
 
             }
+            if(sum != 0) cnt++; // 위 반복문 후반부에 'sum + videoLengths[i] > M' 만족없이 'sum += videoLengths[i];' 만 진행하면 cnt +1 필요
 
-            if (cnt == M){
-                bw.write(String.valueOf(resultLength));
-            }
-            else if (cnt < M) {
+            if (cnt <= M) { // M 개수내로 가능한 블루레이의 크기 중 최소를 구하기 위해
                 end = mid-1;
-            }else start = mid+1;
+            }else {
+                start = mid + 1;
+            }
+
         }
+
+        bw.write(String.valueOf(start));
+
 
 
         bw.flush();
