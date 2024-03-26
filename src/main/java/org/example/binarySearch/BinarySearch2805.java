@@ -49,10 +49,11 @@ public class BinarySearch2805 {
                 }
             }
             //System.out.println("s: "+sum);
-            if (sum >= M) { // sum이 더 커져야 함 -> mid값이 더 작아져야 함
+            if (sum > M) { // sum이 더 커져야 함 -> mid값이 더 작아져야 함
                 start = mid +1;
-            }else if(sum < M) end = mid-1;
+            }else
+                end = mid-1;
 
-        }return end;
+        }return start;
     }
 }
