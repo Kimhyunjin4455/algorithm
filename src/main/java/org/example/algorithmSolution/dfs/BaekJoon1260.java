@@ -61,7 +61,10 @@ public class BaekJoon1260 {
         visited[v] = true;
         System.out.print(v+" ");
 
-        if (v==graph.length)return; // 모든 정점을 다 돌았을 때
+
+//        if (v==graph.length){
+//            return; // 모든 정점을 다 돌았을 때
+//        }
 
         for (int i=1; i<graph.length; i++){
             if (graph[v][i] == 1 && visited[i] == false){   // 연결 노드가 방문처리 되지 않았다면 그 노드에서 실행
