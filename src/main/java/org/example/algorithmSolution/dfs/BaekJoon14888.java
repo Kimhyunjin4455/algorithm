@@ -1,4 +1,4 @@
 package org.example.algorithmSolution.dfs;
 
-public class BaekJoon14888yet {
+public class BaekJoon14888 {
 }
