@@ -75,4 +75,4 @@ public class BaekJoon14888 {
     }
 }
 
->>>>>>> algorithmMac
+
