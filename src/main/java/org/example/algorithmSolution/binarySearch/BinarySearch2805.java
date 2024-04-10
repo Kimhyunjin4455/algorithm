@@ -1,9 +1,7 @@
-package org.example.binarySearch;
+package org.example.algorithmSolution.binarySearch;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class BinarySearch2805 {

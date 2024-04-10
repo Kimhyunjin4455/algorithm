@@ -1,4 +1,4 @@
-    package org.example.binarySearch;
+    package org.example.algorithmSolution.binarySearch;
 
     import java.io.*;
     import java.util.Arrays;

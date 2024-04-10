@@ -1,9 +1,6 @@
-package org.example.binarySearch;
+package org.example.algorithmSolution.binarySearch;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class BinarySearchEx01 {
 
