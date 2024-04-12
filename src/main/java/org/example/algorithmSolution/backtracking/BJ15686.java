@@ -4,50 +4,54 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-
-class Position{
+class Posotion{
     int row;
     int col;
 
-    Position(int row, int col){
+    Posotion(int row, int col){
         this.row = row;
         this.col = col;
     }
 }
-public class BJ15686 {
 
-    static int N, M;
+
+public class BJ15686 {
+    static int N,M;
     static int[][] graph;
-    static ArrayList<Position> home;
-    static ArrayList<Position> chicken;
-    static boolean[] visited; // 오픈한 치킨집
+    static ArrayList<Posotion> homeList;
+    static ArrayList<Posotion> chickenList;
+    static boolean[] visited;
     static int ans;
     public static void main(String[] args) throws IOException {
+        // 0빈칸, 1집, 2치킨
+        // M개만 운영
+        // 도시의 치킨거리: 각 집에서의 치킨거리(최소 거리)의 합
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
         graph = new int[N][N];
-        home = new ArrayList<>();
-        chicken = new ArrayList<>();
+        homeList = new ArrayList<>();
+        chickenList = new ArrayList<>();
 
-        for(int i=0; i<N; i++){ // 좌표 정보 입력받고, 치킨집과 집에 대한 정보를 각각 list에 저장, 정보 담을 클래스를 생성(Position)
+
+        for(int i=0; i<N; i++){
             st = new StringTokenizer(br.readLine(), " ");
-            for (int j=0; j<N; j++){
+            for(int j=0; j<N; j++){
                 graph[i][j] = Integer.parseInt(st.nextToken());
                 if(graph[i][j] == 1){
-                    home.add(new Position(i,j));
-                }
-                if(graph[i][j] == 2){
-                    chicken.add(new Position(i,j));
+                    homeList.add(new Posotion(i,j));
+                }else if (graph[i][j] == 2){
+                    chickenList.add(new Posotion(i,j));
                 }
             }
         }
 
-        visited = new boolean[chicken.size()];
+        visited = new boolean[chickenList.size()];
+        // 치킨집이 운영중일 떄, 모든 집에서 최소거리를 구함
         ans = Integer.MAX_VALUE;
         dfs(0,0);
 
@@ -56,34 +60,35 @@ public class BJ15686 {
         bw.close();
         br.close();
 
+
     }
 
-    private static void dfs(int start, int idx){
-        if(idx == M){ // M번(오픈한 총개수)의 반복을 했으면 모든 집에 대하여 오픈한 치킨집에 대한 최소 거리의 합 구함
-            int res = 0;
 
-            for(int i=0; i< home.size(); i++){
+    private static void dfs(int start, int idx) { // start는 어떤 치킨가게를 오픈할지 경우의 수를 뜻함, idx는 오픈한 치킨가게가 M이 될때까지 추가
+        if(idx == M){
+            int res = 0;
+            for(int i=0; i< homeList.size(); i++){
                 int minValue = Integer.MAX_VALUE;
-                for (int j=0; j< chicken.size(); j++){
-                    if (visited[j]){
-                        int chickenDistance = Math.abs(home.get(i).row - chicken.get(j).row)
-                                + Math.abs(home.get(i).col - chicken.get(j).col);
+                for (int j=0; j< chickenList.size(); j++){
+                    if(visited[j]){
+                        // 각 집에서 운영중인 치킨집에 대해 최소 치킨거리를 구함
+                        int chickenDistance = Math.abs(homeList.get(i).row - chickenList.get(j).row)
+                                    + Math.abs(homeList.get(i).col - chickenList.get(j).col);
                         minValue = Math.min(minValue, chickenDistance);
                     }
                 }
-                res += minValue;
+                res += minValue;    // 도시의 치킨 거리 합산
             }
-            ans = Math.min(ans, res);
-
+            ans = Math.min(ans, res); // 도시의 최소 치킨 거리 구하기
         }
 
-        for (int i=start; i< chicken.size(); i++){
-            visited[i] = true;
+        for (int i = start; i< chickenList.size(); i++){
+            visited[i] = true; // 어느 한집을 운영중이라하고 다음 인덱스 부터 dfs 진행
             dfs(i+1, idx+1);
             visited[i] = false;
-        } // 치킨집 개수만큼 백트래킹
-
-
+        }
 
     }
+
+
 }
