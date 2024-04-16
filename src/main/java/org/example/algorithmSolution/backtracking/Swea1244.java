@@ -27,7 +27,7 @@ public class Swea1244 {
             if(numsList.length < C){ //
                 C = numsList.length;
             }   /** 자리수만큼 교환 기회가 주어진다면 선택 정렬에 의해서 무조건 내림차순으로 정렬하여 최대 상금을 획득 */
-
+                /** 로직은 각 자리에 대해 dfs를 수행하는 것이므로 숫자길이만큼의 교환만 진행하면 됨*/
             ans = Integer.MIN_VALUE;
             dfs(0,0);
             //System.out.println("#"+ tc +" "+ans);
