@@ -1,7 +1,6 @@
 package org.example.algorithmSolution.backtracking;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class Swea1244 {

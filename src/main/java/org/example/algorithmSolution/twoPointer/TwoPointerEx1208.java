@@ -67,7 +67,7 @@ public class TwoPointerEx1208 {
                 }
                 cnt += (leftCnt * rightCnt); // 두 배열의 경우의 수를 곱해야 쌍을 이루는 경우의 수가 구해짐
             }
-            if(leftValue + rightValue <S){
+            if(leftValue + rightValue <S){ // 아래의 두 조건식은 left와 right가 nums라는 수열로부터 분할되었기에 가능
                 start++;
             }
             if (leftValue + rightValue >S) {
@@ -79,6 +79,7 @@ public class TwoPointerEx1208 {
 
         if(S==0){
             bw.write(String.valueOf(cnt-1)); // 합이 0일때는 부분수열에서 하나도 선택하지 않은경우(0,0 => 공집합 2개)도 포함하기에 -1
+            // 문제는 크기가 양수인 부분수열을 구하는 문제!
         }else {
             bw.write(String.valueOf(cnt));
         }
